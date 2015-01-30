@@ -1,0 +1,198 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.OleDb;
+
+
+
+
+public partial class volunteersearchresult : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        string MySQL = Server.UrlDecode(Request.QueryString["Cause"].ToString());
+        string my = Server.UrlDecode(Request.QueryString["age"].ToString());
+        string s = Server.UrlDecode(Request.QueryString["skil"].ToString());
+        string l = Server.UrlDecode(Request.QueryString["loc"].ToString());
+   
+        //ConnectionString
+        string connectString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("guestbook.mdb");
+
+
+        //OleDbConnection object, 
+        //and then pass in the ConnectionString to the constructor.
+        OleDbConnection cn = new OleDbConnection(connectString);
+
+        //Open connection.
+        cn.Open();
+
+        //SQL statement.
+        String whereClause = String.Empty;
+        if (MySQL.Trim().Length > 0)
+        {
+            whereClause += "Causes in ('" + MySQL + "')";
+        }
+        if (my.Trim().Length > 0)
+        {
+            if (whereClause.Length > 2)
+            {
+                whereClause += " or ";
+            }
+            whereClause += "AgeGroup in ('" + my + "') ";
+        }
+        if (s.Trim().Length > 0)
+        {
+            if (whereClause.Length > 2)
+            {
+                whereClause += " or ";
+            }
+            whereClause += "Skills in ('" + s + "') ";
+        }
+        if (l.Trim().Length > 0)
+        {
+            if (whereClause.Length > 2)
+            {
+                whereClause += " or ";
+            }
+            whereClause += "Location in ('" + l + "') ";
+        }
+        string selectString = "SELECT projectName,Emailid,TimeofDay,Education,Causes,AgeGroup,Skills,Location FROM Volunteer where " + whereClause;
+       // string selectString = "SELECT projectName,Emailid,TimeofDay,Education,Causes,AgeGroup,Skills,Location FROM Volunteer where Causes in ('" + MySQL + "') or AgeGroup in ('" + my + "') or Skills in ('" + s + "')  or Location in ('" + l + "')";
+
+        // OleDbCommand object	
+        OleDbCommand cmd = new OleDbCommand(selectString, cn);
+
+        //Send the CommandText to the connection, and then build an OleDbDataReader.	
+        OleDbDataReader reader = cmd.ExecuteReader();
+
+        //Set a table width.
+        DisplayTable11.Width = Unit.Percentage(10.00);
+        //Create a new row for adding a table heading.
+        TableRow tableHeading = new TableRow();
+
+        //Create and add the cells that contain the ID column heading text.
+        //TableHeaderCell IDHeading = new TableHeaderCell();
+        //IDHeading.Text = "ID";
+        //IDHeading.HorizontalAlign = HorizontalAlign.Left;
+        //tableHeading.Cells.Add(IDHeading);
+
+        //Create and add the cells that contain the project Name column heading text.
+        TableHeaderCell projectNameHeading = new TableHeaderCell();
+        projectNameHeading.Text = "Name Of Volunteer";
+        projectNameHeading.HorizontalAlign = HorizontalAlign.Left;
+        tableHeading.Cells.Add(projectNameHeading);
+
+        //Create and add the cells that contain the NGO name column heading text.
+
+        TableHeaderCell ngoHeading = new TableHeaderCell();
+        ngoHeading.Text = "Email address";
+        ngoHeading.HorizontalAlign = HorizontalAlign.Left;
+        tableHeading.Cells.Add(ngoHeading);
+
+
+
+        //Create and add the cells that contain the causes column heading text.
+        TableHeaderCell causesHeading = new TableHeaderCell();
+        causesHeading.Text = "Preferred Cause";
+        causesHeading.HorizontalAlign = HorizontalAlign.Left;
+        tableHeading.Cells.Add(causesHeading);
+
+
+
+
+
+        //Create and add the cells that contain the age group column heading text.
+        TableHeaderCell ageGrpHeading = new TableHeaderCell();
+        ageGrpHeading.Text = "Preferred Target Group";
+        ageGrpHeading.HorizontalAlign = HorizontalAlign.Left;
+        tableHeading.Cells.Add(ageGrpHeading);
+
+        //Create and add the cells that contain the time column heading text.
+        TableHeaderCell timeHeading = new TableHeaderCell();
+        timeHeading.Text = "Time of the Day";
+        timeHeading.HorizontalAlign = HorizontalAlign.Left;
+        tableHeading.Cells.Add(timeHeading);
+
+        //Create and add the cells that contain the skills column heading text.
+        TableHeaderCell skillsHeading = new TableHeaderCell();
+        skillsHeading.Text = "Skills";
+        skillsHeading.HorizontalAlign = HorizontalAlign.Left;
+        tableHeading.Cells.Add(skillsHeading);
+
+        //Create and add the cells that contain the location column heading text.
+        TableHeaderCell locHeading = new TableHeaderCell();
+        locHeading.Text = "Location";
+        locHeading.HorizontalAlign = HorizontalAlign.Left;
+        tableHeading.Cells.Add(locHeading);
+
+        //Create and add the cells that contain the education column heading text.
+        TableHeaderCell eduHeading = new TableHeaderCell();
+        eduHeading.Text = "Education";
+        eduHeading.HorizontalAlign = HorizontalAlign.Left;
+        tableHeading.Cells.Add(eduHeading);
+        //Create and add the cells that contain the website column heading text.
+      
+
+        DisplayTable11.Rows.Add(tableHeading);
+
+        //Loop through the resultant data selection and add the data value	
+        while (reader.Read())
+        {
+            TableRow detailsRow = new TableRow();
+            //TableRow detailsRow = new TableRow();
+            //TableCell IDCell = new TableCell();
+            //IDCell.Text = reader["ID"].ToString();
+            //detailsRow.Cells.Add(IDCell);
+
+
+            TableCell projectNameCell = new TableCell();
+            projectNameCell.Text = reader["projectName"].ToString();
+            detailsRow.Cells.Add(projectNameCell);
+
+            TableCell emailCell = new TableCell();
+            emailCell.Text = reader["Emailid"].ToString();
+            detailsRow.Cells.Add(emailCell);
+
+
+            TableCell causeCell = new TableCell();
+            causeCell.Text = reader["Causes"].ToString();
+            detailsRow.Cells.Add(causeCell);
+
+
+            TableCell ageGroupCell = new TableCell();
+            ageGroupCell.Text = reader["AgeGroup"].ToString();
+            detailsRow.Cells.Add(ageGroupCell);
+
+            TableCell tod = new TableCell();
+            tod.Text = reader["TimeofDay"].ToString();
+            detailsRow.Cells.Add(tod);
+
+            TableCell skilCell = new TableCell();
+            skilCell.Text = reader["Skills"].ToString();
+            detailsRow.Cells.Add(skilCell);
+
+            TableCell locCell = new TableCell();
+            locCell.Text = reader["Location"].ToString();
+            detailsRow.Cells.Add(locCell);
+
+
+
+            TableCell eduCell = new TableCell();
+            eduCell.Text = reader["Education"].ToString();
+            detailsRow.Cells.Add(eduCell);
+
+
+            DisplayTable11.Rows.Add(detailsRow);
+
+        }
+
+        //Close the reader and the related connection.
+        reader.Close();
+        cn.Close();
+    }
+
+
+}
