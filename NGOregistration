@@ -1,0 +1,113 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.OleDb;
+
+
+public partial class NGOregistration : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+     protected void manan(object sender, EventArgs e)
+    {
+        string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("guestbook.mdb");// & ";"
+
+        
+
+         string Causes; List<string> items = new List<string>();
+        for (int index = 0; index < Causelist.Items.Count; index++)
+        {
+            if (Causelist.Items[index].Selected)
+            {
+                items.Add(Causelist.Items[index].Value);
+            }
+        }
+
+        string agegroup;
+        List<string> items1 = new List<string>();
+        for (int index = 0; index < AgeGroups.Items.Count; index++)
+        {
+            if (AgeGroups.Items[index].Selected)
+            {
+                items1.Add(AgeGroups.Items[index].Value);
+
+            }
+        }
+
+    
+
+        string time1;
+        List<string> items3 = new List<string>();
+        for (int index = 0; index < time.Items.Count; index++)
+        {
+            if (time.Items[index].Selected)
+            {
+                items3.Add(time.Items[index].Value);
+
+            }
+        }
+
+        string skills;
+        List<string> items4 = new List<string>();
+        for (int index = 0; index < skill.Items.Count; index++)
+        {
+            if (skill.Items[index].Selected)
+            {
+                items4.Add(skill.Items[index].Value);
+
+            }
+        }
+
+        string areas;
+        List<string> items5 = new List<string>();
+        for (int index = 0; index < area.Items.Count; index++)
+        {
+            if (area.Items[index].Selected)
+            {
+                items5.Add(area.Items[index].Value);
+
+            }
+        }
+
+        string edu;
+        List<string> items6 = new List<string>();
+        for (int index = 0; index < education.Items.Count; index++)
+        {
+            if (education.Items[index].Selected)
+            {
+                items6.Add(education.Items[index].Value);
+
+            }
+        }
+
+  
+
+                //here you will get selected values
+
+                Causes = String.Join(";" , items.ToArray());
+                agegroup = String.Join(";" , items1.ToArray());
+                       time1 = String.Join(";", items3.ToArray());
+                skills = String.Join(";", items4.ToArray());
+                areas = String.Join(";", items5.ToArray());
+                edu = String.Join(";", items6.ToArray());
+                
+               //NGOdetailed is the database of nonprofits                         
+        string MySQL = "INSERT INTO NGOdetailed (ProjectName,NGO,Email,Phonenumber, Website, Cause,AgeGroup,TimeofDay, Skills, Location, Education )VALUES ('"+TextBox1.Text+"','"+TextBox2.Text+"','"+TextBox3.Text+"','"+TextBox4.Text+"','"+TextBox5.Text+"','" +Causes+ "','" +agegroup+ "','" +time1 + "','" +skills+ "','" +areas+ "','" +edu+"')";
+                OleDbConnection MyConn = new OleDbConnection(strConn);
+                OleDbCommand Cmd = new OleDbCommand(MySQL, MyConn);
+                MyConn.Open();
+                Cmd.ExecuteNonQuery();
+        MyConn.Close();
+        Response.Redirect("Thankyou.aspx"); //result page displayed after successful registration
+            }
+
+
+
+
+        }
+
