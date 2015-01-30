@@ -1,0 +1,276 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.OleDb;
+
+
+
+
+public partial class searchresult : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        string MySQL = Server.UrlDecode(Request.QueryString["Cause"].ToString()); 
+        string my =Server.UrlDecode(Request.QueryString["age"].ToString());
+        string d = Server.UrlDecode(Request.QueryString["days"].ToString());
+        string t=Server.UrlDecode(Request.QueryString["time"].ToString());
+        string s=Server.UrlDecode(Request.QueryString["skil"].ToString());
+        string l=Server.UrlDecode(Request.QueryString["loc"].ToString());
+        string ed=Server.UrlDecode(Request.QueryString["educ"].ToString());
+        string la=Server.UrlDecode(Request.QueryString["lang"].ToString());
+        
+
+  
+	//ConnectionString
+        string connectString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("guestbook.mdb");
+	
+	
+	//OleDbConnection object, 
+	//and then pass in the ConnectionString to the constructor.
+        OleDbConnection cn = new OleDbConnection(connectString);
+	
+	//Open connection.
+	cn.Open();
+	
+	//SQL statement.
+    String whereClause = String.Empty;
+    if (MySQL.Trim().Length > 0)
+    {
+        whereClause += "Causes in ('" + MySQL + "')";
+    }
+
+
+    if (my.Trim().Length > 0)
+    {
+        if (whereClause.Length > 2)
+        {
+            whereClause += " or ";
+        }
+        whereClause += "AgeGroup in ('" + my + "') ";
+    }
+
+
+    if (s.Trim().Length > 0)
+    {
+        if (whereClause.Length > 2)
+        {
+            whereClause += " or ";
+        }
+        whereClause += "Skills in ('" + s + "') ";
+    }
+
+
+    if (l.Trim().Length > 0)
+    {
+        if (whereClause.Length > 2)
+        {
+            whereClause += " or ";
+        }
+        whereClause += "Location in ('" + l + "') ";
+    }
+
+
+    if (ed.Trim().Length > 0)
+    {
+        if (whereClause.Length > 2)
+        {
+            whereClause += " or ";
+        }
+        whereClause += "Education in ('" + ed + "') ";
+    }
+
+
+    if (la.Trim().Length > 0)
+    {
+        if (whereClause.Length > 2)
+        {
+            whereClause += " or ";
+        }
+        whereClause += "Language in ('" + la + "') ";
+    }
+
+
+    if (d.Trim().Length > 0)
+    {
+        if (whereClause.Length > 2)
+        {
+            whereClause += " or ";
+        }
+        whereClause += "Days in ('" + d + "') ";
+    }
+
+
+    if (t.Trim().Length > 0)
+    {
+        if (whereClause.Length > 2)
+        {
+            whereClause += " or ";
+        }
+        whereClause += "Time in ('" + t + "') ";
+    }
+
+    string selectString = "SELECT projectName,Emailid,TimeofDay,Education,Causes,AgeGroup,Skills,Location FROM NGOdetailed where " + whereClause;
+    //string selectString = "SELECT ProjectName,NGO,Cause,AgeGroup,TimeofDay,Skills,Location,Education,Website,url FROM NGOdetailed where Cause in ('" + MySQL + "') or AgeGroup in ('"+my+"') or Skills in ('"+s+"')  or Location in ('"+l+"')"  ;
+
+	// OleDbCommand object	
+	OleDbCommand cmd = new OleDbCommand(selectString,cn);
+
+	//Send the CommandText to the connection, and then build an OleDbDataReader.	
+	OleDbDataReader reader = cmd.ExecuteReader();
+
+	//Set a table width.
+	DisplayTable.Width = Unit.Percentage(10.00);
+	//Create a new row for adding a table heading.
+	TableRow tableHeading = new TableRow();
+
+	//Create and add the cells that contain the ID column heading text.
+	//TableHeaderCell IDHeading = new TableHeaderCell();
+	//IDHeading.Text = "ID";
+	//IDHeading.HorizontalAlign = HorizontalAlign.Left;
+	//tableHeading.Cells.Add(IDHeading);
+			
+	//Create and add the cells that contain the project Name column heading text.
+	TableHeaderCell projectNameHeading = new TableHeaderCell();
+	projectNameHeading.Text = "Project Name";
+	projectNameHeading.HorizontalAlign = HorizontalAlign.Left;
+	tableHeading.Cells.Add(projectNameHeading);
+			
+	//Create and add the cells that contain the NGO name column heading text.
+	
+        TableHeaderCell ngoHeading = new TableHeaderCell();
+	ngoHeading.Text = "NGO";
+	ngoHeading.HorizontalAlign = HorizontalAlign.Left;
+	tableHeading.Cells.Add(ngoHeading);
+
+
+
+//Create and add the cells that contain the causes column heading text.
+	TableHeaderCell causesHeading = new TableHeaderCell();
+	causesHeading.Text = "Causes";
+	causesHeading.HorizontalAlign = HorizontalAlign.Left;
+	tableHeading.Cells.Add(causesHeading);
+
+   
+
+   
+
+//Create and add the cells that contain the age group column heading text.
+	TableHeaderCell ageGrpHeading = new TableHeaderCell();
+	ageGrpHeading.Text = "Age Group";
+	ageGrpHeading.HorizontalAlign = HorizontalAlign.Left;
+	tableHeading.Cells.Add(ageGrpHeading);
+
+    //Create and add the cells that contain the time column heading text.
+    TableHeaderCell timeHeading = new TableHeaderCell();
+    timeHeading.Text = "Time of the Day";
+    timeHeading.HorizontalAlign = HorizontalAlign.Left;
+    tableHeading.Cells.Add(timeHeading);
+
+    //Create and add the cells that contain the skills column heading text.
+    TableHeaderCell skillsHeading = new TableHeaderCell();
+    skillsHeading.Text = "Skills Required";
+    skillsHeading.HorizontalAlign = HorizontalAlign.Left;
+    tableHeading.Cells.Add(skillsHeading);
+
+//Create and add the cells that contain the location column heading text.
+	TableHeaderCell locHeading = new TableHeaderCell();
+	locHeading.Text = "Location";
+	locHeading.HorizontalAlign = HorizontalAlign.Left;
+	tableHeading.Cells.Add(locHeading);
+
+//Create and add the cells that contain the education column heading text.
+	TableHeaderCell eduHeading = new TableHeaderCell();
+	eduHeading.Text = "Education";
+	eduHeading.HorizontalAlign = HorizontalAlign.Left;
+	tableHeading.Cells.Add(eduHeading);
+//Create and add the cells that contain the website column heading text.
+	TableHeaderCell urlHeading = new TableHeaderCell();
+	urlHeading.Text = "Website";
+	urlHeading.HorizontalAlign = HorizontalAlign.Left;
+	tableHeading.Cells.Add(urlHeading);
+
+	DisplayTable.Rows.Add(tableHeading);
+
+	//Loop through the resultant data selection and add the data value	
+	while(reader.Read())
+	{
+        TableRow detailsRow = new TableRow();
+		//TableRow detailsRow = new TableRow();
+		//TableCell IDCell = new TableCell();
+		//IDCell.Text = reader["ID"].ToString();
+		//detailsRow.Cells.Add(IDCell);
+
+
+		TableCell projectNameCell = new TableCell();
+		projectNameCell.Text = reader["ProjectName"].ToString();
+		detailsRow.Cells.Add(projectNameCell);
+
+
+	
+         TableCell ngoCell = new TableCell();
+        if (reader["url"].ToString().Trim()!="")
+        {
+              HyperLink link = new HyperLink();
+link.NavigateUrl = reader["url"].ToString();
+//link.Text = reader["NGO"].ToString();
+link.Text = reader["NGO"].ToString();
+ 
+ngoCell.Controls.Add(link);
+		
+		detailsRow.Cells.Add(ngoCell); }
+
+
+        else {ngoCell.Text = reader["NGO"].ToString();
+		detailsRow.Cells.Add(ngoCell); }
+
+     
+
+
+
+		TableCell causeCell = new TableCell();
+		causeCell.Text = reader["Cause"].ToString();
+		detailsRow.Cells.Add(causeCell);
+
+
+		TableCell ageGroupCell = new TableCell();
+		ageGroupCell.Text = reader["AgeGroup"].ToString();
+		detailsRow.Cells.Add(ageGroupCell);
+
+		TableCell tod = new TableCell();
+		tod.Text = reader["TimeofDay"].ToString();
+		detailsRow.Cells.Add(tod);
+
+		TableCell skilCell = new TableCell();
+		skilCell.Text = reader["Skills"].ToString();
+		detailsRow.Cells.Add(skilCell);
+
+		TableCell locCell = new TableCell();
+		locCell.Text = reader["Location"].ToString();
+		detailsRow.Cells.Add(locCell);
+
+
+
+		TableCell eduCell = new TableCell();
+		eduCell.Text = reader["Education"].ToString();
+		detailsRow.Cells.Add(eduCell);
+
+
+		TableCell urlCell = new TableCell();
+		urlCell.Text = reader["Website"].ToString();
+		detailsRow.Cells.Add(urlCell);
+
+
+		DisplayTable.Rows.Add(detailsRow);
+
+	}
+
+         //Close the reader and the related connection.
+	reader.Close();
+	cn.Close();
+}
+
+
+    }
