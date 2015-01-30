@@ -1,0 +1,873 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="H1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <html xmlns:t = "urn:schemas-microsoft-com:time">
+<head>
+	<TITLE>SevaConnect . . . Enabling Ordinary people to create extraordinary changes</TITLE>
+    <style type="text/css">
+
+
+        a {
+	color: #29A3E1;
+            margin-left: 0px;
+        }
+
+        
+
+
+#script {
+align: center;
+   
+}
+       a:hover {
+	color: #E16629;
+} 
+        .style16
+        {
+            text-decoration: underline;
+        }
+        .style14
+        {
+            font-size: medium;
+        }
+        .style22
+        {
+            font-weight: normal;
+        }
+        .style13
+        {
+            width: 85px;
+        }
+        .style33
+        {
+            color: rgb(51, 51, 153);
+        }
+        .style39
+        {
+            font-family: "Lucida Sans Unicode";
+        }
+        .style41
+        {
+            font-family: "Lucida Sans Unicode";
+            font-size:14pt;
+        }
+        .style42
+        {
+            font-family: "Lucida Sans Unicode";
+            color: #FF5050;
+        }
+        th {
+  text-align: left; /* LTR */
+  padding-right: 1em; /* LTR */
+  border-bottom: 3px solid #ccc;
+}
+        input.button:hover{
+   color: #E16629;
+}
+        .style47
+        {
+            font-size: x-large;
+            font-family: "Lucida Sans Unicode";
+        }
+        hr {
+  height: 1px;
+  border: 1px solid gray;
+  body
+
+{
+
+  margin: 0 auto;
+
+  padding: 0;
+
+  color: #0F1419;
+
+  background-color: #B2C2D1;
+
+ 
+
+  background-position: top left;
+
+}
+        }
+        .style50
+        {
+            font-family: "Lucida Sans Unicode";
+            font-size: large;
+            color: #333333;
+        }
+        .style51
+        {
+            color: rgb(102, 102, 102);
+            text-decoration: none;
+        }
+        .style52
+        {
+            color: rgb(51, 51, 51);
+        }
+        .style57
+        {
+            font-family: "Lucida Sans Unicode";
+            font-size: 36pt;
+            color: #333333;
+        }
+        .style58
+        {
+            width: 178px;
+            height: 145px;
+        }
+        .style61
+        {
+            text-decoration: none;
+        }
+                        
+       a.menu:hover 
+{
+    color:#E16629;
+}
+        .style36
+        {
+            font-size: large;
+        }
+        .style1
+        {
+            font-family: "Lucida Sans Unicode";
+        }
+        .style18
+        {
+            text-decoration: none;
+            font-family: "Lucida Sans Unicode";
+        }
+        .style65
+        {
+            font-family: "Lucida Sans Unicode";
+            font-size: medium;
+        }
+        .style21
+        {
+            color: rgb(0, 0, 0);
+        }
+        .style30
+        {
+            color: rgb(0, 153, 255);
+        }
+        .style69
+        {
+            font-family: "Lucida Sans Unicode";
+            font-weight: normal;
+            font-size: large;
+        }
+        .style70
+        {
+            font-family: "Lucida Sans Unicode";
+            font-size: large;
+            color: rgb(255, 255, 255);
+            text-decoration: underline;
+        }
+        .style71
+        {
+            background-color: #FF751A;
+        }
+        .style76
+        {
+            width: 19px;
+            height: 28px;
+        }
+        .style78
+        {
+            font-family: "Lucida Sans Unicode";
+            color: #333333;
+        }
+        .style79
+        {
+            color: rgb(51, 51, 51);
+            font-size: x-large;
+        }
+     a:hover {color:#FF6F0F}
+}
+.button{ 
+				background-color: #F9F9F9; 
+			}
+			.button:hover{ 
+				background-color: #ce6200; 
+			}
+			.button{ 
+				border-color: #ce6200;
+				cursor:pointer
+            font-size: large;
+            font-family: "Lucida Sans Unicode";
+            color: #F3F3F3;
+            font-weight: 700;
+                
+
+        }
+        .style80
+        {
+            background-color: #CCCCCC;
+        }
+                        
+
+        .style83
+        {
+            background-color: #FF8000;
+        }
+        .style90
+        {
+            width: 185px;
+            height: 139px;
+            font-size: small;
+            color: #333333;
+            background-color: #E1E1E1;
+        }
+        
+                
+
+
+        .style67
+        {
+            color: rgb(51, 51, 51);
+            text-decoration: none;
+        }
+        .style68
+        {
+            font-family: "Lucida Sans Unicode";
+            font-size: medium;
+        }
+        .style121
+        {
+            font-family: "Lucida Sans Unicode";
+            font-size: small;
+            background-color: #E1E1E1;
+        }
+        .style120
+        {
+            font-size: small;
+        }
+        .style122
+        {
+            text-decoration: underline;
+            font-size: medium;
+        }
+        .style123
+        {
+            font-size: x-large;
+            color: #000000;
+            font-family: "Lucida Sans Unicode";
+            background-color: #FFFFFF;
+        }
+        .style124
+        {
+            background-color: #FFFFFF;
+            color: rgb(0, 0, 0);
+        }
+        .style125
+        {
+            font-family: "Lucida Sans Unicode";
+            font-size: small;
+            color: #333333;
+            background-color: #E1E1E1;
+        }
+                
+
+        .style126
+        {
+            font-family: "Lucida Sans Unicode";
+            font-size: medium;
+            color: #333333;
+        }
+                
+
+        .style127
+        {
+            text-decoration: none;
+            color: #000000;
+        }
+                
+
+        .style72
+        {
+            color: rgb(0, 0, 0);
+        }
+        .style128
+        {
+            font-size: small;
+            font-weight: bold;
+        }
+        .style129
+        {
+            background-color: #D8D8D8;
+        }
+                
+
+        .style130
+        {
+            font-family: "Lucida Sans Unicode";
+            font-size: small;
+            color: rgb(0, 0, 0);
+        }
+                
+
+        </style>
+    <form id="form1" runat="server">
+    <strong>
+
+    
+       <div style="background-color:#F9F9F9; width: auto; margin-left: 0px; margin-top: 0; font-size: small;"> 
+    <strong>
+
+    
+           <span class="style57">
+          <a href="default.aspx"><img align="left" class="style58" src="logo^.jpg" /></a></span></strong><span class="style78"><a href="default.aspx" 
+               class="style61"><span class="style79">SevaConnect</span></a></span><span class="style57">&nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="https://www.facebook.com/pages/Seva-Connect/145142495655550">
+           <img class="style76" src="fb.jpg" align="right" /></a></strong></span><div class="menu" align="right"> </div>
+           <span class="style126">
+           <br />
+           Enabling ordinary people to create extraordinary&nbsp;changes . . .</span><span class="style50">&nbsp;<br />
+           <br />
+           </span><span class="style65">&nbsp;</span><strong><asp:DynamicHyperLink 
+               ID="Volunteer" runat="server" BackColor="#FF8C1A" BorderColor="#E67300" 
+               BorderStyle="Outset" Font-Bold="True" Font-Names="Lucida Sans Unicode" 
+               Font-Size="Medium" Font-Underline="False" ForeColor="White" 
+               NavigateUrl="~/Volunteer.aspx">Volunteer</asp:DynamicHyperLink>
+           &nbsp;&nbsp;&nbsp;
+           <asp:DynamicHyperLink 
+               ID="Volunteer0" runat="server" BackColor="#FF972F" BorderColor="#E67300" 
+               BorderStyle="Outset" Font-Bold="True" Font-Names="Lucida Sans Unicode" 
+               Font-Size="Medium" Font-Underline="False" ForeColor="White" 
+               NavigateUrl="~/VirtualVolunteering.aspx">Virtual Volunteering</asp:DynamicHyperLink>
+           &nbsp;&nbsp;&nbsp;
+           <asp:DynamicHyperLink 
+               ID="Volunteer1" runat="server" BackColor="#FF9428" BorderColor="#E67300" 
+               BorderStyle="Outset" Font-Bold="True" Font-Names="Lucida Sans Unicode" 
+               Font-Size="Medium" Font-Underline="False" ForeColor="White" 
+               NavigateUrl="~/NGOpage.aspx">Nonprofits</asp:DynamicHyperLink>
+           &nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;
+           <asp:DynamicHyperLink 
+               ID="Volunteer3" runat="server" BackColor="#FF972F" BorderColor="#E67300" 
+               BorderStyle="Outset" Font-Bold="True" Font-Names="Lucida Sans Unicode" 
+               Font-Size="Medium" Font-Underline="False" ForeColor="White" 
+               NavigateUrl="~/AboutUs.aspx">About Us</asp:DynamicHyperLink>
+           </strong><span class="style33">&nbsp;&nbsp;&nbsp;&nbsp; <strong>
+           <asp:DynamicHyperLink 
+               ID="Volunteer4" runat="server" BackColor="#FF972F" BorderColor="#E67300" 
+               BorderStyle="Outset" Font-Bold="True" Font-Names="Lucida Sans Unicode" 
+               Font-Size="Medium" Font-Underline="False" ForeColor="White" 
+               NavigateUrl="~/awards.aspx">Awards &amp; Recognitions</asp:DynamicHyperLink>
+           </strong>
+           <br />
+    
+   
+
+
+   
+             
+        
+         
+
+   </div>
+     
+
+
+    <br />
+     
+
+
+    </head>
+    <body style="background-color: #F9F9F9">
+       
+    
+    
+    
+    <div align="center">
+ <script language="JavaScript1.2">
+
+//Presentational Slideshow Script- By Dynamic Drive
+//For full source code and more DHTML scripts, visit http://www.dynamicdrive.com
+//This credit MUST stay intact for legal use
+
+var slideshow_width='1000px' //SET SLIDESHOW WIDTH (set to largest image's width if multiple dimensions exist)
+var slideshow_height='420px' //SET SLIDESHOW HEIGHT (set to largest image's height if multiple dimensions exist)
+var pause=3000 //SET PAUSE BETWEEN SLIDE (3000=3 seconds)
+var slidebgcolor="#F9F9F9"
+
+var dropimages=new Array()
+//SET IMAGE PATHS. Extend or contract array as needed
+dropimages[0]="slide1.jpg"
+dropimages[1]="slide2.jpg"
+dropimages[2]="slidez.jpg"
+dropimages[3]="slidex.jpg"
+dropimages[4]="slidey.jpg"
+
+
+var droplinks=new Array()
+//SET IMAGE URLs. Use "" if you wish particular image to NOT be linked:
+droplinks[0]="default.aspx"
+droplinks[1]="Volunteer.aspx"
+droplinks[2]="Volunteer.aspx"
+droplinks[3]="Volunteer.aspx"
+droplinks[4]="NGOpage.aspx"
+
+
+
+
+////NO need to edit beyond here/////////////
+
+var preloadedimages=new Array()
+for (p=0;p<dropimages.length;p++){
+preloadedimages[p]=new Image()
+preloadedimages[p].src=dropimages[p]
+}
+
+var ie4=document.all
+var dom=document.getElementById
+
+if (ie4||dom)
+document.write('<div style="position:relative;width:'+slideshow_width+';height:'+slideshow_height+';overflow:hidden"><div id="canvas0" style="position:absolute;width:'+slideshow_width+';height:'+slideshow_height+';background-color:'+slidebgcolor+';left:-'+slideshow_width+'"></div><div id="canvas1" style="position:absolute;width:'+slideshow_width+';height:'+slideshow_height+';background-color:'+slidebgcolor+';left:-'+slideshow_width+'"></div></div>')
+else
+document.write('<a href="javascript:rotatelink()"><img name="defaultslide" src="'+dropimages[0]+'" border=0></a>')
+
+var curpos=parseInt(slideshow_width)*(-1)
+var degree=10
+var curcanvas="canvas0"
+var curimageindex=linkindex=0
+var nextimageindex=1
+
+
+function movepic(){
+if (curpos<0){
+curpos=Math.min(curpos+degree,0)
+tempobj.style.left=curpos+"px"
+}
+else{
+
+clearInterval(dropslide)
+nextcanvas=(curcanvas=="canvas0")? "canvas0" : "canvas1"
+tempobj=ie4? eval("document.all."+nextcanvas) : document.getElementById(nextcanvas)
+var slideimage='<img src="'+dropimages[curimageindex]+'" align=middle border=0>'
+tempobj.innerHTML=(droplinks[curimageindex]!="")? '<a href="'+droplinks[curimageindex]+'">'+slideimage+'</a>' : slideimage
+nextimageindex=(nextimageindex<dropimages.length-1)? nextimageindex+1 : 0
+setTimeout("rotateimage()",pause)
+}
+}
+
+function rotateimage(){
+if (ie4||dom){
+resetit(curcanvas)
+var crossobj=tempobj=ie4? eval("document.all."+curcanvas) : document.getElementById(curcanvas)
+crossobj.style.zIndex++
+var temp='setInterval("movepic()",50)'
+dropslide=eval(temp)
+curcanvas=(curcanvas=="canvas0")? "canvas1" : "canvas0"
+}
+else
+document.images.defaultslide.src=dropimages[curimageindex]
+linkindex=curimageindex
+curimageindex=(curimageindex<dropimages.length-1)? curimageindex+1 : 0
+}
+
+function rotatelink(){
+if (droplinks[linkindex]!="")
+window.location=droplinks[linkindex]
+}
+
+function resetit(what){
+curpos=parseInt(slideshow_width)*(-1)
+var crossobj=ie4? eval("document.all."+what) : document.getElementById(what)
+crossobj.style.left=curpos+"px"
+}
+
+function startit(){
+var crossobj=ie4? eval("document.all."+curcanvas) : document.getElementById(curcanvas)
+crossobj.innerHTML='<a href="'+droplinks[curimageindex]+'"><img src="'+dropimages[curimageindex]+'" align=middle border=0></a>'
+rotateimage()
+}
+
+if (ie4||dom)
+window.onload=startit
+else
+setInterval("rotateimage()",pause)
+
+</script> </div>
+<div style="background-color:#F9F9F9">
+                <br />
+                <span class="style47">&nbsp;<strong><asp:DynamicHyperLink 
+               ID="Volunteer5" runat="server" BackColor="#FF8C1A" BorderColor="#E67300" 
+               BorderStyle="Outset" Font-Bold="True" Font-Names="Lucida Sans Unicode" 
+               Font-Size="17pt" Font-Underline="False" ForeColor="White" 
+               NavigateUrl="~/Volunteersearch.aspx">Find a Volunteer </asp:DynamicHyperLink>
+           &nbsp; <span class="style33"><span class="style22">
+                <asp:DynamicHyperLink 
+               ID="Volunteer7" runat="server" BackColor="#FF8C1A" BorderColor="#E67300" 
+               BorderStyle="Outset" Font-Bold="True" Font-Names="Lucida Sans Unicode" 
+               Font-Size="17pt" Font-Underline="False" ForeColor="White" 
+               NavigateUrl="~/seva.aspx">Find your perfect NGO</asp:DynamicHyperLink>
+                </span>&nbsp;
+                <asp:DynamicHyperLink 
+               ID="Volunteer8" runat="server" BackColor="#FF8C1A" BorderColor="#E67300" 
+               BorderStyle="Outset" Font-Bold="True" Font-Names="Lucida Sans Unicode" 
+               Font-Size="17pt" Font-Underline="False" ForeColor="White" 
+               NavigateUrl="~/VirtualVolunteering.aspx">Virtual Volunteering</asp:DynamicHyperLink>
+                &nbsp;
+                <asp:DynamicHyperLink 
+               ID="Volunteer9" runat="server" BackColor="#FF8C1A" BorderColor="#E67300" 
+               BorderStyle="Outset" Font-Bold="True" Font-Names="Lucida Sans Unicode" 
+               Font-Size="17pt" Font-Underline="False" ForeColor="White" 
+               NavigateUrl="~/NGOpage.aspx">Register Nonprofit</asp:DynamicHyperLink>
+                </span>
+           </strong>
+                <br />
+        
+                </span>
+                <span class="style123">
+                &nbsp;<strong><br />
+                <br />
+                <br />
+           </strong>Upcoming Volunteering Opportunities:     
+   
+                <span class="style39">
+                <a href="Ashray.aspx" 
+                class="style51"><span class="style39">Ashray, an organisation in Bandra(w), Mumbai 
+                
+                </span> 
+                <span class="style22"><span class="style39">needs volunteers for <strong>fund-raising</strong></span></span></a></span></span><span 
+                class="style52"><br class="style41" />
+                </span>
+                <span class="style14"><span class="style52"><br class="style39" />
+        
+              
+   
+            </span>
+        
+              
+   
+                <span class="style42"> <br /><br /></span> </div>
+
+        
+      
+        
+       </span>
+        
+   
+                
+        </span>
+                    
+   
+                
+        </strong> <span class="style33"> <span class="style33">
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+        <p>
+            <strong>
+            <span class="style69">
+            <span class="style13">
+            <span 
+                class="style21">
+            <span class="style30">
+        <a href="VirtualVolunteering.aspx" class="style61"><span class="style124">Too busy to volunteer? try out
+             </span>
+            </a><span class="style71">
+        <a href="VirtualVolunteering.aspx"><span class="style124">Virtual 
+            Volunteering</span></a></span></span></span></span><span class="style33"></span></span><span 
+                class="style70"><span class="style71"></span></span></strong></span><strong><br />
+            <br />
+            <span class="style39">
+            <br />
+            </span><span class="style33">
+            <a href="https://www.facebook.com/pages/Seva-Connect/145142495655550">
+            <img class="style76" src="fb.jpg" align="right" /></a></span></strong><div style="background-color:#FF8000">
+            <strong> 
+               <span class="style65"><span class="style83"><b>
+                    <span 
+           class="style1"><span 
+                class="style14"><span class="style33">
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+               <span 
+                   class="style52">
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+        <div style="background-color:#DFDFDF">
+
+        
+               
+        
+
+  
+      
+          
+               
+              
+                <span class="style33">
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+                <strong> 
+                <span class="style65"><span class="style83"><b>
+                    <span 
+           class="style1"><span 
+                class="style14">
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+               <span 
+                class="style18"><span class="style16"> 
+        <a href="default.aspx" class="style67"><span class="style121">Home</span></a></span></span></span></span></b></span></span></strong></span><a href="default.aspx" class="style18"><span class="style80"><span class="style90">&nbsp;&nbsp;&nbsp;&nbsp;
+            </span></span><span class="style67"><span class="style68"></span></span>
+               <span 
+                class="style36"> 
+               </span> 
+                <span class="style50"></span></span> </span><span class="style125">
+                <span class="style33">
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+                <strong> 
+                <span class="style65"><span class="style83"><b>
+                    <span 
+           class="style1"><span 
+                class="style14">
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+               <span 
+                class="style18"><span class="style16"> 
+        <a href="AboutUs.aspx" class="style67"><span class="style121">About</span></a></span></span></span></span></b></span></span></strong></span>&nbsp;&nbsp;&nbsp;
+               </span>
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+                <span class="style33">
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+               <span 
+                class="style18"><span class="style16"> 
+        <a href="Contact.aspx" class="style67"><span class="style121">Contact</span></a></span></span><span 
+                    class="style125">&nbsp;&nbsp;&nbsp;
+            </span><span 
+                class="style18"><span class="style16"> 
+            <a href=http://sevaconnectstory.blogspot.in class="style67">
+               <span class="style121">Blog</span></a></span></span></span></span><span class="style33"><span 
+                    class="style39"><span 
+                class="style120">&nbsp;&nbsp;</span></span><span 
+                class="style14"><span class="style68">&nbsp;&nbsp;</span></span></span>
+            <strong> 
+               <span class="style65">
+                    <span class="style83"><span 
+           class="style1"><span 
+                class="style128"><span class="style72"><a class="style67" href="team.aspx">
+                <span class="style129">The Team</span></a></span></span></span></span></span></strong>&nbsp;
+                <a class="style127" 
+                    href="http://www.indianexpress.com/news/in-ngo-bazaar-take-your-pick/1172465/">
+                <span class="style39"><span class="style120">SevaConnect in Media</span></span><span 
+                class="style14"><span class="style68"><span class="style65"> </span> </span>
+                </span> </a><span class="style65"><span 
+                class="style14">&nbsp; </span></span>
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+                    </b>
+                </span>
+                    
+   
+                
+        </strong>
+                    
+   
+                
+                </span>
+                    
+   
+                
+                <span class="style130"><strong><a class="style67" href="awards.aspx">
+                <span class="style21">Awards and Recognitions</span></a></strong></span><span class="style33"><b><strong><span class="style65"><span 
+                class="style14">&nbsp;</span></span></strong></b></span></span></span><span class="style33"><b><strong><span class="style65"><p align="left">
+            <span class="style39">
+            <span class="style14">Get in touch:</span></span></p>
+        <ul>
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+                <div align="left">
+                    <ul>
+                    <li><a href="https://www.facebook.com/pages/Seva-Connect/145142495655550"><img class="style76" src="fb.jpg" /></a> 
+                        <span class="style120">&nbsp;</span><span class="style39"><li><span class="style14">or email to 
+                            </span> <span class="style122">connectseva@gmail.com</span></li></span></ul></div>
+                <p>
+                    &nbsp;</p>
+                    
+   
+                
+    </div>
+            
+           
+       
+    
+   
+
+
+   
+             
+        
+         
+
+                    </span>
+                    
+   
+                
+        </strong>
+                    
+   
+                
+    
+   
+
+
+   
+             
+        
+         
+
+                    </b>
+            <strong> 
+               <span class="style65">
+                </div></span>
+                    
+   
+                
+        </strong>
+                    
+   
+                
+        </span>
+                    
+   
+                
+            <strong> 
+                    
+   
+                
+    </form>
+                    
+   
+                
+        </strong>
+                    
+   
+                
+    <p>
+        <span style="color: rgb(90, 90, 90); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11.111111640930176px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20.98958396911621px; orphans: auto; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">
+        <span class="Apple-converted-space">&nbsp;</span>© 2013 SevaConnect</span></p>
+                    
+   
+                
+</body>
+</HTML>
+  
+    </form>
+</body>
+</html>
