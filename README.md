@@ -1,4 +1,4 @@
-Sevaconnect
+SevaConnect
 
 *Made in Microsoft Visual Studio, using C# for backend. Will run only in an environment which supports ASPX.
 
